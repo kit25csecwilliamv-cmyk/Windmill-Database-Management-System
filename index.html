@@ -1,0 +1,160 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windmill Database Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div>
+            <h1>🌬️ Windmill Management System</h1>
+            <p>Wind Energy Monitoring Dashboard</p>
+        </div>
+        <span class="system-status">● System Online</span>
+    </header>
+
+    <main class="container">
+
+        <section class="dashboard">
+            <div class="card">
+                <h3>Total Windmills</h3>
+                <p id="totalWindmills">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Windmills</h3>
+                <p id="activeWindmills">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Maintenance Required</h3>
+                <p id="maintenanceWindmills">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Power Generation</h3>
+                <p><span id="totalPower">0</span> kW</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add Windmill Details</h2>
+
+            <form id="windmillForm">
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+                    <div>
+                        <label for="windmillId">Windmill ID</label>
+                        <input type="text" id="windmillId"
+                               placeholder="e.g. WM001" required>
+                    </div>
+
+                    <div>
+                        <label for="windmillName">Windmill Name</label>
+                        <input type="text" id="windmillName"
+                               placeholder="Enter windmill name" required>
+                    </div>
+
+                    <div>
+                        <label for="location">Location</label>
+                        <input type="text" id="location"
+                               placeholder="Enter location" required>
+                    </div>
+
+                    <div>
+                        <label for="capacity">Capacity (kW)</label>
+                        <input type="number" id="capacity"
+                               min="0.01" step="any"
+                               placeholder="Enter capacity" required>
+                    </div>
+
+                    <div>
+                        <label for="power">Current Power (kW)</label>
+                        <input type="number" id="power"
+                               min="0" step="any"
+                               placeholder="Enter power output" required>
+                    </div>
+
+                    <div>
+                        <label for="status">Operational Status</label>
+                        <select id="status" required>
+                            <option value="Active">Active</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="maintenanceDate">Last Maintenance Date</label>
+                        <input type="date" id="maintenanceDate">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitButton">
+                        Add Windmill
+                    </button>
+                    <button type="reset" class="secondary"
+                            id="resetButton">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="table-header">
+                <h2>Windmill Database</h2>
+
+                <div class="search-area">
+                    <input type="search" id="searchInput"
+                           placeholder="Search windmills...">
+
+                    <select id="filterStatus" aria-label="Filter by status">
+                        <option value="All">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+
+                    <button type="button" id="exportButton"
+                            class="export-button">Export CSV</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Capacity (kW)</th>
+                            <th>Power (kW)</th>
+                            <th>Status</th>
+                            <th>Last Maintenance</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="windmillTable">
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="recordCount">0 records found</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Windmill Database Management System | HTML, CSS & JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
